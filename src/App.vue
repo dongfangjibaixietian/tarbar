@@ -1,32 +1,50 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <tab-bar>
+      <tab-bar-item path="/home">
+        <img slot="item-icon" src="./assets/img/home.png" alt="">
+        <img slot="item-icon-active" src="./assets/img/home.png" alt="">
+        <div slot="item-text">首页</div>
+      </tab-bar-item>
+      <tab-bar-item path="/category">
+        <img slot="item-icon" src="./assets/img/category.png" alt="">
+        <img slot="item-icon-active" src="./assets/img/category.png" alt="">
+        <div slot="item-text">分类</div>
+      </tab-bar-item>
+      <tab-bar-item path="/cart">
+        <img slot="item-icon" src="./assets/img/cart.png" alt="">
+        <img slot="item-icon-active" src="./assets/img/cart.png" alt="">
+        <div slot="item-text">购物车</div>
+
+      </tab-bar-item>
+      <tab-bar-item path="/me">
+        <img slot="item-icon" src="./assets/img/me.png" alt="">
+        <img slot="item-icon-active" src="./assets/img/me.png" alt="">
+        <div slot="item-text">我的</div>
+      </tab-bar-item>
+    </tab-bar>
+    <router-view></router-view>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import TabBar from './components/tabbar/TarBar.vue'
+  import TabBarItem from './components/tabbar/TarBarItem.vue'
 
-#nav {
-  padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    //导出要连名字，所用到的组件一起导出,还有相对应的methods
+  export default {
+    name: 'APP',
+    components: {
+      TabBar,
+      TabBarItem
     }
   }
-}
+</script>
+
+<style>
+
+@import "./assets/css/base.css";
+
+
 </style>
